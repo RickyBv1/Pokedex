@@ -1,0 +1,32 @@
+<div
+  id="backdrop"
+  [ngClass]="{ hidden: !open }"
+  (click)="changeClosed.emit()"
+></div>
+<div class="container">
+  <div id="data">
+    <div class="area">
+      <app-pokemon-card [fullData]="pokemon"></app-pokemon-card>
+    </div>
+    <div class="area">
+      <p>
+        <span class="label">Type</span
+        ><span class="type" *ngFor="let type of pokemon?.types">{{
+          type.type.name
+        }}</span>
+      </p>
+      <p><span class="label">Height</span>{{ pokemon?.height }}'</p>
+      <p><span class="label">Weight</span>{{ pokemon?.weight }}lbs.</p>
+    </div>
+    <div class="area">
+      <div class="description-container">
+        <div></div>
+        <p>{{ description }}</p>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <button (click)="changeClosed.emit()">
+    <img src="img/pokeball.png" [ngClass]="{ rotate: open }" />
+  </button>
+</div>
